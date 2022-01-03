@@ -22,11 +22,11 @@ RUN mkdir "$HOME" && \
 
 USER "$USER"
 
-COPY ./tg-notify-bot ./requirements.txt "$HOME/ds-notify-bot/"
+COPY ./tg-notify-bot ./requirements.txt "$HOME/tg-notify-bot/"
 WORKDIR "$HOME"
 # Modify the $USER PATH variable
 ENV PATH="$PATH:$HOME/.local/bin"
 
-RUN python -m pip install --user --no-cache-dir -r ./ds-notify-bot/requirements.txt
+RUN python -m pip install --user --no-cache-dir -r ./tg-notify-bot/requirements.txt
 
 ENTRYPOINT ["python", "-m", "tg-notify-bot"]
